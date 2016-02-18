@@ -24,4 +24,6 @@ public interface Morphology {
 
     List<String> getMorphInfo(String s);
 
+    boolean testWordForm(String word, String[] grammemas);
+
 }

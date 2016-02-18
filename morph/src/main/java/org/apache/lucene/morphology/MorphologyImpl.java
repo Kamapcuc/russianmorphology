@@ -46,6 +46,7 @@ public class MorphologyImpl implements Morphology {
         this.grammarInfo = grammarInfo;
     }
 
+    @Override
     public List<String> getNormalForms(String s) {
         ArrayList<String> result = new ArrayList<String>();
         int[] ints = decoderEncoder.encodeToArray(revertWord(s));
@@ -56,6 +57,7 @@ public class MorphologyImpl implements Morphology {
         return result;
     }
 
+    @Override
     public List<String> getMorphInfo(String s) {
         ArrayList<String> result = new ArrayList<String>();
         int[] ints = decoderEncoder.encodeToArray(revertWord(s));
@@ -64,6 +66,22 @@ public class MorphologyImpl implements Morphology {
             result.add(h.transformWord(s).append("|").append(grammarInfo[h.getFormMorphInfo()]).toString());
         }
         return result;
+    }
+
+    @Override
+    public boolean testWordForm(String word, String[] grammemas) {
+        int[] ints = decoderEncoder.encodeToArray(revertWord(word));
+        int ruleId = findRuleId(ints);
+        for (Heuristic h : rules[rulesId[ruleId]]) {
+            String wordForm = grammarInfo[h.getFormMorphInfo()];
+            boolean flag = true;
+            for (String grammeme : grammemas)
+                if (!wordForm.contains(grammeme))
+                    flag = false;
+            if (flag)
+                return true;
+        }
+        return false;
     }
 
     protected int findRuleId(int[] ints) {
