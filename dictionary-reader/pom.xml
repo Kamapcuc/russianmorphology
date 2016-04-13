@@ -3,26 +3,26 @@
     <parent>
         <artifactId>morphology</artifactId>
         <groupId>org.motovs.lucene.morphology</groupId>
-        <version>4.6.0-patched</version>
+        <version>4.6.0-patched2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dictionary-reader</artifactId>
     <name>dictionary-reader</name>
-    <version>4.6.0-patched</version>
+    <version>4.6.0-patched2</version>
     <url>http://maven.apache.org</url>
 
     <dependencies>
         <dependency>
             <groupId>org.motovs.lucene.morphology</groupId>
             <artifactId>russian</artifactId>
-            <version>4.6.0-patched</version>
+            <version>4.6.0-patched2</version>
         </dependency>
 
 
         <dependency>
             <groupId>org.motovs.lucene.morphology</groupId>
             <artifactId>english</artifactId>
-            <version>4.6.0-patched</version>
+            <version>4.6.0-patched2</version>
         </dependency>
     </dependencies>
 
